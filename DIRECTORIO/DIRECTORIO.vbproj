@@ -92,6 +92,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="Directorio\Class\ClassConfig.vb" />
+    <Compile Include="Directorio\Class\ClassData.vb" />
     <Compile Include="Directorio\WinDirectorio.vb">
       <SubType>Form</SubType>
     </Compile>

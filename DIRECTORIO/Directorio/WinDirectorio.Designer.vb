@@ -22,6 +22,7 @@ Partial Class WinDirectorio
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(WinDirectorio))
         Me.P_Aviso = New System.Windows.Forms.Panel()
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
@@ -89,17 +90,26 @@ Partial Class WinDirectorio
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.txtBuscar = New System.Windows.Forms.TextBox()
         Me.P_Logo = New System.Windows.Forms.Panel()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.btnMostrarAvisos = New System.Windows.Forms.PictureBox()
         Me.Footer1 = New System.Windows.Forms.Panel()
         Me.btnCrearTicket = New System.Windows.Forms.PictureBox()
         Me.Lb_Fecha = New System.Windows.Forms.Label()
         Me.Lb_Hora = New System.Windows.Forms.Label()
         Me.btnLogo = New System.Windows.Forms.PictureBox()
-        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.P_Soporte = New System.Windows.Forms.Panel()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.CmbFormato = New System.Windows.Forms.ComboBox()
+        Me.Label23 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.BtnBackFormato = New System.Windows.Forms.Button()
         Me.Label34 = New System.Windows.Forms.Label()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.NotifyIcon = New System.Windows.Forms.NotifyIcon(Me.components)
+        Me.MenuContextual = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.MenuCerrar = New System.Windows.Forms.ToolStripMenuItem()
         Me.P_Aviso.SuspendLayout()
         Me.Footer7.SuspendLayout()
         Me.P_ResultadoAviso.SuspendLayout()
@@ -124,8 +134,9 @@ Partial Class WinDirectorio
         Me.Footer1.SuspendLayout()
         CType(Me.btnCrearTicket, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnLogo, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel1.SuspendLayout()
+        Me.P_Soporte.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        Me.MenuContextual.SuspendLayout()
         Me.SuspendLayout()
         '
         'P_Aviso
@@ -416,9 +427,9 @@ Partial Class WinDirectorio
         Me.btnGuardarTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGuardarTicket.Image = CType(resources.GetObject("btnGuardarTicket.Image"), System.Drawing.Image)
         Me.btnGuardarTicket.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnGuardarTicket.Location = New System.Drawing.Point(145, -1)
+        Me.btnGuardarTicket.Location = New System.Drawing.Point(150, 0)
         Me.btnGuardarTicket.Name = "btnGuardarTicket"
-        Me.btnGuardarTicket.Size = New System.Drawing.Size(154, 29)
+        Me.btnGuardarTicket.Size = New System.Drawing.Size(149, 29)
         Me.btnGuardarTicket.TabIndex = 7
         Me.btnGuardarTicket.UseVisualStyleBackColor = False
         '
@@ -431,9 +442,9 @@ Partial Class WinDirectorio
         Me.btnBackTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnBackTicket.Image = CType(resources.GetObject("btnBackTicket.Image"), System.Drawing.Image)
         Me.btnBackTicket.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnBackTicket.Location = New System.Drawing.Point(0, -1)
+        Me.btnBackTicket.Location = New System.Drawing.Point(0, 0)
         Me.btnBackTicket.Name = "btnBackTicket"
-        Me.btnBackTicket.Size = New System.Drawing.Size(146, 29)
+        Me.btnBackTicket.Size = New System.Drawing.Size(149, 29)
         Me.btnBackTicket.TabIndex = 6
         Me.btnBackTicket.UseVisualStyleBackColor = False
         '
@@ -543,6 +554,7 @@ Partial Class WinDirectorio
         Me.btnCorreo.Name = "btnCorreo"
         Me.btnCorreo.Size = New System.Drawing.Size(25, 25)
         Me.btnCorreo.TabIndex = 21
+        Me.ToolTip1.SetToolTip(Me.btnCorreo, "Enviar correo")
         Me.btnCorreo.UseVisualStyleBackColor = True
         '
         'lbEquipoData
@@ -836,6 +848,7 @@ Partial Class WinDirectorio
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(20, 20)
         Me.btnSearch.TabIndex = 5
+        Me.ToolTip1.SetToolTip(Me.btnSearch, "Presione para realizar una busqueda")
         Me.btnSearch.UseVisualStyleBackColor = True
         '
         'Footer2
@@ -880,7 +893,6 @@ Partial Class WinDirectorio
         '
         'P_Logo
         '
-        Me.P_Logo.Controls.Add(Me.Button1)
         Me.P_Logo.Controls.Add(Me.btnMostrarAvisos)
         Me.P_Logo.Controls.Add(Me.Footer1)
         Me.P_Logo.Controls.Add(Me.Lb_Fecha)
@@ -892,25 +904,17 @@ Partial Class WinDirectorio
         Me.P_Logo.Size = New System.Drawing.Size(299, 299)
         Me.P_Logo.TabIndex = 35
         '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(213, 184)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 35
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
         'btnMostrarAvisos
         '
         Me.btnMostrarAvisos.BackgroundImage = CType(resources.GetObject("btnMostrarAvisos.BackgroundImage"), System.Drawing.Image)
         Me.btnMostrarAvisos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.btnMostrarAvisos.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnMostrarAvisos.Location = New System.Drawing.Point(4, 149)
+        Me.btnMostrarAvisos.Location = New System.Drawing.Point(4, 136)
         Me.btnMostrarAvisos.Name = "btnMostrarAvisos"
         Me.btnMostrarAvisos.Size = New System.Drawing.Size(26, 26)
         Me.btnMostrarAvisos.TabIndex = 34
         Me.btnMostrarAvisos.TabStop = False
+        Me.ToolTip1.SetToolTip(Me.btnMostrarAvisos, "Notificaciones")
         '
         'Footer1
         '
@@ -932,12 +936,13 @@ Partial Class WinDirectorio
         Me.btnCrearTicket.Size = New System.Drawing.Size(26, 26)
         Me.btnCrearTicket.TabIndex = 35
         Me.btnCrearTicket.TabStop = False
+        Me.ToolTip1.SetToolTip(Me.btnCrearTicket, "Necesitas Ayuda?")
         '
         'Lb_Fecha
         '
         Me.Lb_Fecha.AutoSize = True
         Me.Lb_Fecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Lb_Fecha.Location = New System.Drawing.Point(60, 217)
+        Me.Lb_Fecha.Location = New System.Drawing.Point(58, 217)
         Me.Lb_Fecha.Name = "Lb_Fecha"
         Me.Lb_Fecha.Size = New System.Drawing.Size(183, 15)
         Me.Lb_Fecha.TabIndex = 2
@@ -947,7 +952,7 @@ Partial Class WinDirectorio
         '
         Me.Lb_Hora.AutoSize = True
         Me.Lb_Hora.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Lb_Hora.Location = New System.Drawing.Point(98, 240)
+        Me.Lb_Hora.Location = New System.Drawing.Point(96, 240)
         Me.Lb_Hora.Name = "Lb_Hora"
         Me.Lb_Hora.Size = New System.Drawing.Size(106, 25)
         Me.Lb_Hora.TabIndex = 1
@@ -965,41 +970,86 @@ Partial Class WinDirectorio
         Me.btnLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.btnLogo.TabIndex = 34
         Me.btnLogo.TabStop = False
+        Me.ToolTip1.SetToolTip(Me.btnLogo, "Clic para entrar al sistema")
         '
-        'Panel1
+        'P_Soporte
         '
-        Me.Panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Panel1.Controls.Add(Me.Panel2)
-        Me.Panel1.Controls.Add(Me.Label34)
-        Me.Panel1.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Panel1.Location = New System.Drawing.Point(309, 309)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(299, 299)
-        Me.Panel1.TabIndex = 42
+        Me.P_Soporte.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.P_Soporte.Controls.Add(Me.Label24)
+        Me.P_Soporte.Controls.Add(Me.Label22)
+        Me.P_Soporte.Controls.Add(Me.CmbFormato)
+        Me.P_Soporte.Controls.Add(Me.Label23)
+        Me.P_Soporte.Controls.Add(Me.Panel2)
+        Me.P_Soporte.Controls.Add(Me.Label34)
+        Me.P_Soporte.Cursor = System.Windows.Forms.Cursors.Default
+        Me.P_Soporte.Location = New System.Drawing.Point(309, 309)
+        Me.P_Soporte.Name = "P_Soporte"
+        Me.P_Soporte.Size = New System.Drawing.Size(299, 299)
+        Me.P_Soporte.TabIndex = 42
+        '
+        'Label24
+        '
+        Me.Label24.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label24.Location = New System.Drawing.Point(47, 132)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(205, 129)
+        Me.Label24.TabIndex = 33
+        Me.Label24.Text = "Este formato sirve para pedir un cambio en el equipo de computo o mejora."
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label22.Location = New System.Drawing.Point(47, 108)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(81, 16)
+        Me.Label22.TabIndex = 32
+        Me.Label22.Text = "Descripcion"
+        '
+        'CmbFormato
+        '
+        Me.CmbFormato.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CmbFormato.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmbFormato.FormattingEnabled = True
+        Me.CmbFormato.Items.AddRange(New Object() {"Alta", "Media", "Baja"})
+        Me.CmbFormato.Location = New System.Drawing.Point(50, 79)
+        Me.CmbFormato.Name = "CmbFormato"
+        Me.CmbFormato.Size = New System.Drawing.Size(202, 24)
+        Me.CmbFormato.TabIndex = 31
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label23.Location = New System.Drawing.Point(47, 59)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(64, 16)
+        Me.Label23.TabIndex = 30
+        Me.Label23.Text = "Formato:"
         '
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(43, Byte), Integer))
-        Me.Panel2.Controls.Add(Me.Button3)
+        Me.Panel2.Controls.Add(Me.BtnBackFormato)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel2.Location = New System.Drawing.Point(0, 270)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(299, 29)
         Me.Panel2.TabIndex = 21
         '
-        'Button3
+        'BtnBackFormato
         '
-        Me.Button3.BackgroundImage = CType(resources.GetObject("Button3.BackgroundImage"), System.Drawing.Image)
-        Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.Button3.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button3.FlatAppearance.BorderSize = 0
-        Me.Button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(90, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Location = New System.Drawing.Point(0, 0)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(299, 29)
-        Me.Button3.TabIndex = 6
-        Me.Button3.UseVisualStyleBackColor = False
+        Me.BtnBackFormato.BackgroundImage = CType(resources.GetObject("BtnBackFormato.BackgroundImage"), System.Drawing.Image)
+        Me.BtnBackFormato.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.BtnBackFormato.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnBackFormato.FlatAppearance.BorderSize = 0
+        Me.BtnBackFormato.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(90, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.BtnBackFormato.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnBackFormato.Location = New System.Drawing.Point(0, 0)
+        Me.BtnBackFormato.Name = "BtnBackFormato"
+        Me.BtnBackFormato.Size = New System.Drawing.Size(299, 29)
+        Me.BtnBackFormato.TabIndex = 6
+        Me.BtnBackFormato.UseVisualStyleBackColor = False
         '
         'Label34
         '
@@ -1011,13 +1061,39 @@ Partial Class WinDirectorio
         Me.Label34.TabIndex = 5
         Me.Label34.Text = "Soporte"
         '
+        'Timer1
+        '
+        '
+        'Timer2
+        '
+        '
+        'NotifyIcon
+        '
+        Me.NotifyIcon.ContextMenuStrip = Me.MenuContextual
+        Me.NotifyIcon.Icon = CType(resources.GetObject("NotifyIcon.Icon"), System.Drawing.Icon)
+        Me.NotifyIcon.Text = "Corporativo LUIN"
+        Me.NotifyIcon.Visible = True
+        '
+        'MenuContextual
+        '
+        Me.MenuContextual.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MenuCerrar})
+        Me.MenuContextual.Name = "MenuContextual"
+        Me.MenuContextual.Size = New System.Drawing.Size(181, 48)
+        '
+        'MenuCerrar
+        '
+        Me.MenuCerrar.Image = CType(resources.GetObject("MenuCerrar.Image"), System.Drawing.Image)
+        Me.MenuCerrar.Name = "MenuCerrar"
+        Me.MenuCerrar.Size = New System.Drawing.Size(180, 22)
+        Me.MenuCerrar.Text = "Cerrar"
+        '
         'WinDirectorio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1541, 682)
-        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.P_Soporte)
         Me.Controls.Add(Me.P_Aviso)
         Me.Controls.Add(Me.P_ResultadoAviso)
         Me.Controls.Add(Me.P_Ticket)
@@ -1027,8 +1103,11 @@ Partial Class WinDirectorio
         Me.Controls.Add(Me.P_Logo)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MinimizeBox = False
         Me.Name = "WinDirectorio"
-        Me.Opacity = 0.8R
+        Me.Opacity = 0.85R
+        Me.ShowIcon = False
+        Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Directorio"
         Me.P_Aviso.ResumeLayout(False)
@@ -1062,9 +1141,10 @@ Partial Class WinDirectorio
         Me.Footer1.ResumeLayout(False)
         CType(Me.btnCrearTicket, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnLogo, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
+        Me.P_Soporte.ResumeLayout(False)
+        Me.P_Soporte.PerformLayout()
         Me.Panel2.ResumeLayout(False)
+        Me.MenuContextual.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -1135,15 +1215,24 @@ Partial Class WinDirectorio
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents txtBuscar As TextBox
     Friend WithEvents P_Logo As Panel
-    Friend WithEvents Button1 As Button
     Friend WithEvents btnMostrarAvisos As PictureBox
     Friend WithEvents Footer1 As Panel
     Friend WithEvents btnCrearTicket As PictureBox
     Friend WithEvents Lb_Fecha As Label
     Friend WithEvents Lb_Hora As Label
     Friend WithEvents btnLogo As PictureBox
-    Friend WithEvents Panel1 As Panel
+    Friend WithEvents P_Soporte As Panel
     Friend WithEvents Panel2 As Panel
-    Friend WithEvents Button3 As Button
+    Friend WithEvents BtnBackFormato As Button
     Friend WithEvents Label34 As Label
+    Friend WithEvents Timer1 As Timer
+    Friend WithEvents Timer2 As Timer
+    Friend WithEvents ToolTip1 As ToolTip
+    Friend WithEvents NotifyIcon As NotifyIcon
+    Friend WithEvents MenuContextual As ContextMenuStrip
+    Friend WithEvents MenuCerrar As ToolStripMenuItem
+    Friend WithEvents Label24 As Label
+    Friend WithEvents Label22 As Label
+    Friend WithEvents CmbFormato As ComboBox
+    Friend WithEvents Label23 As Label
 End Class
