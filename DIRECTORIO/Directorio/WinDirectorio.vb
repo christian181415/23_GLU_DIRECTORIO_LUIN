@@ -125,5 +125,6 @@
 
     Private Sub MenuContextual_DoubleClick(sender As Object, e As EventArgs) Handles MenuContextual.DoubleClick
         'Me.TopMost = True
+
     End Sub
 End Class
