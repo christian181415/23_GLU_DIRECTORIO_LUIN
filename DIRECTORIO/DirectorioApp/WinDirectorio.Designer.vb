@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class WinDirectorio
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class WinDirectorio
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(WinDirectorio))
@@ -53,13 +53,14 @@ Partial Class WinDirectorio
         Me.btnBackTicket = New System.Windows.Forms.Button()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.P_Perfil = New System.Windows.Forms.Panel()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.PBoxUbicacion = New System.Windows.Forms.PictureBox()
+        Me.lbExtensionData = New System.Windows.Forms.Label()
         Me.PictureBox5 = New System.Windows.Forms.PictureBox()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnCorreo = New System.Windows.Forms.Button()
-        Me.lbEquipoData = New System.Windows.Forms.Label()
+        Me.lbPuestoData = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
@@ -69,7 +70,7 @@ Partial Class WinDirectorio
         Me.btnBackResult = New System.Windows.Forms.Button()
         Me.lbCorreoData = New System.Windows.Forms.Label()
         Me.lbCelularData = New System.Windows.Forms.Label()
-        Me.lbExtensionData = New System.Windows.Forms.Label()
+        Me.Label = New System.Windows.Forms.Label()
         Me.lbTelefonoData = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.lbNombreData = New System.Windows.Forms.Label()
@@ -109,7 +110,8 @@ Partial Class WinDirectorio
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.NotifyIcon = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.MenuContextual = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.MenuCerrar = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MostrarDirectorio = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CerrarDirectorio = New System.Windows.Forms.ToolStripMenuItem()
         Me.P_Aviso.SuspendLayout()
         Me.Footer7.SuspendLayout()
         Me.P_ResultadoAviso.SuspendLayout()
@@ -117,6 +119,7 @@ Partial Class WinDirectorio
         Me.P_Ticket.SuspendLayout()
         Me.Footer5.SuspendLayout()
         Me.P_Perfil.SuspendLayout()
+        CType(Me.PBoxUbicacion, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -461,13 +464,14 @@ Partial Class WinDirectorio
         'P_Perfil
         '
         Me.P_Perfil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.P_Perfil.Controls.Add(Me.Label2)
+        Me.P_Perfil.Controls.Add(Me.PBoxUbicacion)
+        Me.P_Perfil.Controls.Add(Me.lbExtensionData)
         Me.P_Perfil.Controls.Add(Me.PictureBox5)
         Me.P_Perfil.Controls.Add(Me.PictureBox4)
         Me.P_Perfil.Controls.Add(Me.PictureBox3)
         Me.P_Perfil.Controls.Add(Me.PictureBox1)
         Me.P_Perfil.Controls.Add(Me.btnCorreo)
-        Me.P_Perfil.Controls.Add(Me.lbEquipoData)
+        Me.P_Perfil.Controls.Add(Me.lbPuestoData)
         Me.P_Perfil.Controls.Add(Me.Label19)
         Me.P_Perfil.Controls.Add(Me.Label18)
         Me.P_Perfil.Controls.Add(Me.Label17)
@@ -476,7 +480,7 @@ Partial Class WinDirectorio
         Me.P_Perfil.Controls.Add(Me.Footer4)
         Me.P_Perfil.Controls.Add(Me.lbCorreoData)
         Me.P_Perfil.Controls.Add(Me.lbCelularData)
-        Me.P_Perfil.Controls.Add(Me.lbExtensionData)
+        Me.P_Perfil.Controls.Add(Me.Label)
         Me.P_Perfil.Controls.Add(Me.lbTelefonoData)
         Me.P_Perfil.Controls.Add(Me.Label13)
         Me.P_Perfil.Controls.Add(Me.lbNombreData)
@@ -487,16 +491,28 @@ Partial Class WinDirectorio
         Me.P_Perfil.Size = New System.Drawing.Size(299, 299)
         Me.P_Perfil.TabIndex = 38
         '
-        'Label2
+        'PBoxUbicacion
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Label2.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(212, 219)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(27, 16)
-        Me.Label2.TabIndex = 38
-        Me.Label2.Text = "115"
+        Me.PBoxUbicacion.BackgroundImage = CType(resources.GetObject("PBoxUbicacion.BackgroundImage"), System.Drawing.Image)
+        Me.PBoxUbicacion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PBoxUbicacion.Cursor = System.Windows.Forms.Cursors.Default
+        Me.PBoxUbicacion.Location = New System.Drawing.Point(6, 142)
+        Me.PBoxUbicacion.Name = "PBoxUbicacion"
+        Me.PBoxUbicacion.Size = New System.Drawing.Size(25, 25)
+        Me.PBoxUbicacion.TabIndex = 39
+        Me.PBoxUbicacion.TabStop = False
+        Me.ToolTip1.SetToolTip(Me.PBoxUbicacion, "7Oriente, C. El Arenal, #610, Amozoc, Pue.")
+        '
+        'lbExtensionData
+        '
+        Me.lbExtensionData.AutoSize = True
+        Me.lbExtensionData.Cursor = System.Windows.Forms.Cursors.Default
+        Me.lbExtensionData.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbExtensionData.Location = New System.Drawing.Point(212, 217)
+        Me.lbExtensionData.Name = "lbExtensionData"
+        Me.lbExtensionData.Size = New System.Drawing.Size(27, 16)
+        Me.lbExtensionData.TabIndex = 38
+        Me.lbExtensionData.Text = "115"
         '
         'PictureBox5
         '
@@ -557,16 +573,16 @@ Partial Class WinDirectorio
         Me.ToolTip1.SetToolTip(Me.btnCorreo, "Enviar correo")
         Me.btnCorreo.UseVisualStyleBackColor = True
         '
-        'lbEquipoData
+        'lbPuestoData
         '
-        Me.lbEquipoData.AutoSize = True
-        Me.lbEquipoData.Cursor = System.Windows.Forms.Cursors.Default
-        Me.lbEquipoData.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbEquipoData.Location = New System.Drawing.Point(74, 117)
-        Me.lbEquipoData.Name = "lbEquipoData"
-        Me.lbEquipoData.Size = New System.Drawing.Size(59, 16)
-        Me.lbEquipoData.TabIndex = 31
-        Me.lbEquipoData.Text = "Compras"
+        Me.lbPuestoData.AutoSize = True
+        Me.lbPuestoData.Cursor = System.Windows.Forms.Cursors.Default
+        Me.lbPuestoData.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbPuestoData.Location = New System.Drawing.Point(74, 117)
+        Me.lbPuestoData.Name = "lbPuestoData"
+        Me.lbPuestoData.Size = New System.Drawing.Size(59, 16)
+        Me.lbPuestoData.TabIndex = 31
+        Me.lbPuestoData.Text = "Compras"
         '
         'Label19
         '
@@ -586,9 +602,9 @@ Partial Class WinDirectorio
         Me.Label18.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label18.Location = New System.Drawing.Point(73, 211)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(66, 16)
+        Me.Label18.Size = New System.Drawing.Size(90, 16)
         Me.Label18.TabIndex = 29
-        Me.Label18.Text = "Teléfono:"
+        Me.Label18.Text = "Teléfono fijo:"
         '
         'Label17
         '
@@ -596,9 +612,9 @@ Partial Class WinDirectorio
         Me.Label17.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label17.Location = New System.Drawing.Point(74, 174)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(57, 16)
+        Me.Label17.Size = New System.Drawing.Size(105, 16)
         Me.Label17.TabIndex = 28
-        Me.Label17.Text = "Celular:"
+        Me.Label17.Text = "Telefono movíl:"
         '
         'Label16
         '
@@ -668,16 +684,16 @@ Partial Class WinDirectorio
         Me.lbCelularData.TabIndex = 8
         Me.lbCelularData.Text = "22 25 10 10 64"
         '
-        'lbExtensionData
+        'Label
         '
-        Me.lbExtensionData.AutoSize = True
-        Me.lbExtensionData.Cursor = System.Windows.Forms.Cursors.Default
-        Me.lbExtensionData.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbExtensionData.Location = New System.Drawing.Point(183, 219)
-        Me.lbExtensionData.Name = "lbExtensionData"
-        Me.lbExtensionData.Size = New System.Drawing.Size(31, 16)
-        Me.lbExtensionData.TabIndex = 7
-        Me.lbExtensionData.Text = "Ext:"
+        Me.Label.AutoSize = True
+        Me.Label.Cursor = System.Windows.Forms.Cursors.Default
+        Me.Label.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label.Location = New System.Drawing.Point(183, 217)
+        Me.Label.Name = "Label"
+        Me.Label.Size = New System.Drawing.Size(31, 16)
+        Me.Label.TabIndex = 7
+        Me.Label.Text = "Ext:"
         '
         'lbTelefonoData
         '
@@ -699,6 +715,7 @@ Partial Class WinDirectorio
         Me.Label13.Size = New System.Drawing.Size(80, 20)
         Me.Label13.TabIndex = 5
         Me.Label13.Text = "Compras"
+        Me.Label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lbNombreData
         '
@@ -890,6 +907,7 @@ Partial Class WinDirectorio
         Me.txtBuscar.Name = "txtBuscar"
         Me.txtBuscar.Size = New System.Drawing.Size(167, 20)
         Me.txtBuscar.TabIndex = 0
+        Me.txtBuscar.Text = "Christian De Jesús Moreno"
         '
         'P_Logo
         '
@@ -906,10 +924,12 @@ Partial Class WinDirectorio
         '
         'btnMostrarAvisos
         '
+        Me.btnMostrarAvisos.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnMostrarAvisos.BackgroundImage = CType(resources.GetObject("btnMostrarAvisos.BackgroundImage"), System.Drawing.Image)
         Me.btnMostrarAvisos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.btnMostrarAvisos.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnMostrarAvisos.Location = New System.Drawing.Point(4, 136)
+        Me.btnMostrarAvisos.Location = New System.Drawing.Point(136, 12)
         Me.btnMostrarAvisos.Name = "btnMostrarAvisos"
         Me.btnMostrarAvisos.Size = New System.Drawing.Size(26, 26)
         Me.btnMostrarAvisos.TabIndex = 34
@@ -963,10 +983,10 @@ Partial Class WinDirectorio
         Me.btnLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.btnLogo.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnLogo.Image = CType(resources.GetObject("btnLogo.Image"), System.Drawing.Image)
-        Me.btnLogo.Location = New System.Drawing.Point(0, 23)
+        Me.btnLogo.Location = New System.Drawing.Point(0, 30)
         Me.btnLogo.Margin = New System.Windows.Forms.Padding(0)
         Me.btnLogo.Name = "btnLogo"
-        Me.btnLogo.Size = New System.Drawing.Size(299, 194)
+        Me.btnLogo.Size = New System.Drawing.Size(299, 187)
         Me.btnLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.btnLogo.TabIndex = 34
         Me.btnLogo.TabStop = False
@@ -1071,21 +1091,28 @@ Partial Class WinDirectorio
         '
         Me.NotifyIcon.ContextMenuStrip = Me.MenuContextual
         Me.NotifyIcon.Icon = CType(resources.GetObject("NotifyIcon.Icon"), System.Drawing.Icon)
-        Me.NotifyIcon.Text = "Corporativo LUIN"
+        Me.NotifyIcon.Text = "Directorio | Corporativo LUIN"
         Me.NotifyIcon.Visible = True
         '
         'MenuContextual
         '
-        Me.MenuContextual.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MenuCerrar})
+        Me.MenuContextual.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MostrarDirectorio, Me.CerrarDirectorio})
         Me.MenuContextual.Name = "MenuContextual"
-        Me.MenuContextual.Size = New System.Drawing.Size(181, 48)
+        Me.MenuContextual.Size = New System.Drawing.Size(171, 48)
         '
-        'MenuCerrar
+        'MostrarDirectorio
         '
-        Me.MenuCerrar.Image = CType(resources.GetObject("MenuCerrar.Image"), System.Drawing.Image)
-        Me.MenuCerrar.Name = "MenuCerrar"
-        Me.MenuCerrar.Size = New System.Drawing.Size(180, 22)
-        Me.MenuCerrar.Text = "Cerrar"
+        Me.MostrarDirectorio.Image = CType(resources.GetObject("MostrarDirectorio.Image"), System.Drawing.Image)
+        Me.MostrarDirectorio.Name = "MostrarDirectorio"
+        Me.MostrarDirectorio.Size = New System.Drawing.Size(170, 22)
+        Me.MostrarDirectorio.Text = "Mostrar Directorio"
+        '
+        'CerrarDirectorio
+        '
+        Me.CerrarDirectorio.Image = CType(resources.GetObject("CerrarDirectorio.Image"), System.Drawing.Image)
+        Me.CerrarDirectorio.Name = "CerrarDirectorio"
+        Me.CerrarDirectorio.Size = New System.Drawing.Size(170, 22)
+        Me.CerrarDirectorio.Text = "Cerrar Directorio"
         '
         'WinDirectorio
         '
@@ -1121,6 +1148,7 @@ Partial Class WinDirectorio
         Me.Footer5.ResumeLayout(False)
         Me.P_Perfil.ResumeLayout(False)
         Me.P_Perfil.PerformLayout()
+        CType(Me.PBoxUbicacion, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1178,13 +1206,13 @@ Partial Class WinDirectorio
     Friend WithEvents btnBackTicket As Button
     Friend WithEvents Label14 As Label
     Friend WithEvents P_Perfil As Panel
-    Friend WithEvents Label2 As Label
+    Friend WithEvents lbExtensionData As Label
     Friend WithEvents PictureBox5 As PictureBox
     Friend WithEvents PictureBox4 As PictureBox
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents btnCorreo As Button
-    Friend WithEvents lbEquipoData As Label
+    Friend WithEvents lbPuestoData As Label
     Friend WithEvents Label19 As Label
     Friend WithEvents Label18 As Label
     Friend WithEvents Label17 As Label
@@ -1194,7 +1222,7 @@ Partial Class WinDirectorio
     Friend WithEvents btnBackResult As Button
     Friend WithEvents lbCorreoData As Label
     Friend WithEvents lbCelularData As Label
-    Friend WithEvents lbExtensionData As Label
+    Friend WithEvents Label As Label
     Friend WithEvents lbTelefonoData As Label
     Friend WithEvents Label13 As Label
     Friend WithEvents lbNombreData As Label
@@ -1230,9 +1258,11 @@ Partial Class WinDirectorio
     Friend WithEvents ToolTip1 As ToolTip
     Friend WithEvents NotifyIcon As NotifyIcon
     Friend WithEvents MenuContextual As ContextMenuStrip
-    Friend WithEvents MenuCerrar As ToolStripMenuItem
+    Friend WithEvents CerrarDirectorio As ToolStripMenuItem
     Friend WithEvents Label24 As Label
     Friend WithEvents Label22 As Label
     Friend WithEvents CmbFormato As ComboBox
     Friend WithEvents Label23 As Label
+    Friend WithEvents MostrarDirectorio As ToolStripMenuItem
+    Friend WithEvents PBoxUbicacion As PictureBox
 End Class

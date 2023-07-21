@@ -67,6 +67,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
@@ -92,13 +93,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
-    <Compile Include="Directorio\Class\ClassConfig.vb" />
-    <Compile Include="Directorio\Class\ClassData.vb" />
-    <Compile Include="Directorio\WinDirectorio.vb">
+    <Compile Include="DirectorioApp\ClassDirectorio\ClassDirectorioConfig.vb" />
+    <Compile Include="DirectorioApp\ClassDirectorio\ClassDirectorioData.vb" />
+    <Compile Include="DirectorioApp\WinDirectorio.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Directorio\WinDirectorio.Designer.vb">
+    <Compile Include="DirectorioApp\WinDirectorio.Designer.vb">
       <DependentUpon>WinDirectorio.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MsgBoxC\ClassMsgBoxC\ClassMsgBoxCustom.vb" />
+    <Compile Include="MsgBoxC\WinMsgBox.Designer.vb">
+      <DependentUpon>WinMsgBox.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MsgBoxC\WinMsgBox.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -119,13 +127,16 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="MsgBoxC\WinMsgBox.resx">
+      <DependentUpon>WinMsgBox.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Directorio\WinDirectorio.resx">
+    <EmbeddedResource Include="DirectorioApp\WinDirectorio.resx">
       <DependentUpon>WinDirectorio.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
@@ -143,6 +154,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="IconDirectorio.ico" />
+    <Content Include="MsgBoxC\Assets\chat.png" />
+    <Content Include="MsgBoxC\Assets\error.png" />
+    <Content Include="MsgBoxC\Assets\exclamation.png" />
+    <Content Include="MsgBoxC\Assets\information.png" />
+    <Content Include="MsgBoxC\Assets\question.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
@@ -156,5 +172,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

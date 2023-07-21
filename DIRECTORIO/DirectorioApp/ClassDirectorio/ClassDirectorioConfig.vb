@@ -1,7 +1,7 @@
 ﻿Imports System.Runtime.InteropServices
 Imports System.Threading
 
-Public Class ClassConfig
+Public Class ClassDirectorioConfig
     Private Declare Function GetLastInputInfo Lib "user32" (ByRef plii As UltimoClick) As Boolean
 #Region "ClassConfig | FUNCION ESPECIFICA PARA CAMBIAR EL COLOR"
     Public Function SeleccionarColor(Empresa As String, P_Logo As Panel, P_Busqueda As Panel, P_ResultadoPerfil As Panel, P_Perfil As Panel, P_Ticket As Panel,
@@ -23,27 +23,27 @@ Public Class ClassConfig
             'USUARIOS CORP
             CambiarColor(P_Logo, P_Busqueda, P_ResultadoPerfil, P_Perfil, P_Ticket, P_ResultadoAviso, P_Aviso, Btn_CrearTicket,
                         Btn_BackSearch, Btn_GuardarTicket, Btn_BackList, Btn_BackResult, Btn_BackTicket, Btn_BackResultAviso,
-                        Btn_BackAviso, Btn_Logo, Fondo_Empresa, CORP, OverBackCORP, "Logo_CORP.jpg", "Logo_CORP_Hoja.png")
+                        Btn_BackAviso, Btn_Logo, Fondo_Empresa, CORP, OverBackCORP, "Logo_CORP.png", "Logo_CORP_Hoja.png")
         ElseIf Empresa = "FGI" Then
             'USUARIOS FGI
             CambiarColor(P_Logo, P_Busqueda, P_ResultadoPerfil, P_Perfil, P_Ticket, P_ResultadoAviso, P_Aviso, Btn_CrearTicket,
                         Btn_BackSearch, Btn_GuardarTicket, Btn_BackList, Btn_BackResult, Btn_BackTicket, Btn_BackResultAviso,
-                        Btn_BackAviso, Btn_Logo, Fondo_Empresa, MEDICINE, OverBackMDN, "Logo_FGI.jpg", "Logo_FGI.jpg")
+                        Btn_BackAviso, Btn_Logo, Fondo_Empresa, MEDICINE, OverBackMDN, "Logo_FGI.png", "Logo_FGI.jpg")
         ElseIf Empresa.Substring(0, 4) = "MD" Then
             'USUARIOS MEDICINE
             CambiarColor(P_Logo, P_Busqueda, P_ResultadoPerfil, P_Perfil, P_Ticket, P_ResultadoAviso, P_Aviso, Btn_CrearTicket,
                         Btn_BackSearch, Btn_GuardarTicket, Btn_BackList, Btn_BackResult, Btn_BackTicket, Btn_BackResultAviso,
-                        Btn_BackAviso, Btn_Logo, Fondo_Empresa, MEDICINE, OverBackMDN, "Logo_Medicine.jpg", "Logo_Medicine.jpg")
+                        Btn_BackAviso, Btn_Logo, Fondo_Empresa, MEDICINE, OverBackMDN, "Logo_Medicine.png", "Logo_Medicine.jpg")
         ElseIf Empresa.Substring(0, 4) = "MDTP" Then
             'USUARIOS MOLDAPTA
             CambiarColor(P_Logo, P_Busqueda, P_ResultadoPerfil, P_Perfil, P_Ticket, P_ResultadoAviso, P_Aviso, Btn_CrearTicket,
                         Btn_BackSearch, Btn_GuardarTicket, Btn_BackList, Btn_BackResult, Btn_BackTicket, Btn_BackResultAviso,
-                        Btn_BackAviso, Btn_Logo, Fondo_Empresa, PLASTIKA, OverBackPSK, "Logo_Moldapta.jpg", "Logo_Moldapta.jpg")
+                        Btn_BackAviso, Btn_Logo, Fondo_Empresa, PLASTIKA, OverBackPSK, "Logo_Moldapta.png", "Logo_Moldapta.jpg")
         ElseIf Empresa.Substring(0, 4) = "PSKI" Then
             'USUARIOS PLASTIKISIMO
             CambiarColor(P_Logo, P_Busqueda, P_ResultadoPerfil, P_Perfil, P_Ticket, P_ResultadoAviso, P_Aviso, Btn_CrearTicket,
                         Btn_BackSearch, Btn_GuardarTicket, Btn_BackList, Btn_BackResult, Btn_BackTicket, Btn_BackResultAviso,
-                        Btn_BackAviso, Btn_Logo, Fondo_Empresa, PLASTIKISIMO, OverBackPSKI, "Logo_Plastikisimo.jpg", "Logo_Plastikisimo.jpg")
+                        Btn_BackAviso, Btn_Logo, Fondo_Empresa, PLASTIKISIMO, OverBackPSKI, "Logo_Plastikisimo.png", "Logo_Plastikisimo.jpg")
         ElseIf Empresa.Substring(0, 4) = "PSK" Then
             'USUARIOS PLASTIKA
             CambiarColor(P_Logo, P_Busqueda, P_ResultadoPerfil, P_Perfil, P_Ticket, P_ResultadoAviso, P_Aviso, Btn_CrearTicket,
@@ -87,10 +87,13 @@ Public Class ClassConfig
         Btn_BackResultAviso.FlatAppearance.MouseOverBackColor = ColorTranslator.FromHtml(OverBackEMPRESA)
         Btn_BackAviso.FlatAppearance.MouseOverBackColor = ColorTranslator.FromHtml(OverBackEMPRESA)
         Btn_GuardarTicket.FlatAppearance.MouseOverBackColor = ColorTranslator.FromHtml(OverBackEMPRESA)
-        Btn_Logo.Image = Image.FromFile(System.IO.Directory.GetCurrentDirectory + "\Resources\Empresas\Logos\" & Logo)
-        Fondo_Empresa.BackgroundImage = Image.FromFile(System.IO.Directory.GetCurrentDirectory + "\Resources\Empresas\Iconos\" & Icono)
+        Try
+            Btn_Logo.Image = Image.FromFile(System.IO.Directory.GetCurrentDirectory + "\Assets\IMG\Logos\" & Logo)
+            Fondo_Empresa.BackgroundImage = Image.FromFile(System.IO.Directory.GetCurrentDirectory + "\Assets\IMG\Iconos\" & Icono)
+        Catch ex As Exception
+            MsgBox("Error al mostrar el logotipo", MsgBoxStyle.Exclamation, "Error | Corporativo LUIN | CCFCC")
+        End Try
     End Function
-
 #End Region
 
 
@@ -140,7 +143,7 @@ Public Class ClassConfig
         Dim Ultimo As Integer = Click.dwTime
         Dim Intervalo As Integer = (Total - Ultimo) / 1000
 
-        Dim Segundos As Integer = 3
+        Dim Segundos As Integer = 60
         If Intervalo >= Segundos Then
             Tiempo.Stop()
             'MsgBox(Convert.ToString(Segundos) + " SEGUNDOS DE INACTIVIDAD")
